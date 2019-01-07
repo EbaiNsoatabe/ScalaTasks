@@ -1,6 +1,6 @@
 object PrimeNumberCount extends App {
   var divisor = 2
-  var nonPrime = 0
+  var noPrime = 0
 
   print("Enter a number: ")
   var range = scala.io.StdIn.readInt()
@@ -9,7 +9,7 @@ object PrimeNumberCount extends App {
     divisor = 2
     while(divisor <= math.sqrt(i)){
       if(i % divisor == 0){
-        nonPrime += 1
+        noPrime += 1
         divisor += i
       }
       else{
@@ -18,5 +18,5 @@ object PrimeNumberCount extends App {
     }
   }
 
-  println(s"There are ${(range / 2) - nonPrime} prime numbers in range (1-$range)")
+  println(s"There are ${(range / 2) - noPrime} prime numbers in range (1-$range)")
 }
