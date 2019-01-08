@@ -1,6 +1,6 @@
 object LongestPalindrome extends App {
   print("Enter a word: ")
-  var word = scala.io.StdIn.readLine()
+  val word = scala.io.StdIn.readLine()
   var b = 0
   import scala.collection.mutable.ListBuffer
   var list = ListBuffer[String]()

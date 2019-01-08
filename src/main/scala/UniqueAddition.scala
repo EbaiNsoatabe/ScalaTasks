@@ -20,9 +20,9 @@ object UniqueAddition extends App{
   print("Enter number: ")
   val firstNum = scala.io.StdIn.readInt()
   print("Enter number: ")
-  var secondNum = scala.io.StdIn.readInt()
+  val secondNum = scala.io.StdIn.readInt()
   print("Enter number: ")
-  var thirdNum = scala.io.StdIn.readInt()
+  val thirdNum = scala.io.StdIn.readInt()
 
   print(add(firstNum, secondNum, thirdNum))
 }
