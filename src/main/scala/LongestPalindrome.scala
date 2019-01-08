@@ -2,8 +2,7 @@ object LongestPalindrome extends App {
   print("Enter a word: ")
   val word = scala.io.StdIn.readLine()
   var b = 0
-  import scala.collection.mutable.ListBuffer
-  var list = ListBuffer[String]()
+  var list = scala.collection.mutable.ListBuffer[String]()
   var n = 0
 
   def palindrome(a:String){

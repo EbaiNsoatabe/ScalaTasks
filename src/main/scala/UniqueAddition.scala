@@ -1,18 +1,17 @@
 object UniqueAddition extends App{
-  var sum = 0
-
-  def add(a:Int, b:Int, c:Int):Int={
-    if(a != b && a != c && b != c){
-      sum = a + b + c
+  def add(first:Int, second:Int, third:Int):Int={
+    var sum = 0
+    if(first != second && first != third && second != third){
+      sum = first + second + third
     }
-    else if(a == b && a != c){
-      sum = c
+    else if(first == second && first != third){
+      sum = third
     }
-    else if(b == c && a != b){
-      sum = a
+    else if(second == third && first != second){
+      sum = first
     }
-    else if(a == c && b != a){
-      sum = b
+    else if(first == third && second != first){
+      sum = second
     }
     return sum
   }

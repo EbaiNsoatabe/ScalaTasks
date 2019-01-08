@@ -1,5 +1,5 @@
 object ArrayDuplicate extends App {
-  val unique = Array.fill(1000000){scala.util.Random.nextInt(999999)}
+  val unique = Array.fill(10000000){scala.util.Random.nextInt(9999999)}
   val length = unique.length
   def equal(a:Int, b:Int){
     if(a == b) {
