@@ -1,28 +1,27 @@
 object UniqueAddition extends App{
-  var sum = 0
-
-  def add(a:Int, b:Int, c:Int):Int={
-    if(a != b && a != c && b != c){
-      sum = a + b + c
+  def add(first:Int, second:Int, third:Int){
+    var sum = 0
+    if(first != second && first != third && second != third){
+      sum = first + second + third
     }
-    else if(a == b && a != c){
-      sum = c
+    else if(first == second && first != third){
+      sum = third
     }
-    else if(b == c && a != b){
-      sum = a
+    else if(second == third && first != second){
+      sum = first
     }
-    else if(a == c && b != a){
-      sum = b
+    else if(first == third && second != first){
+      sum = second
     }
-    return sum
+    print(sum)
   }
 
   print("Enter number: ")
   val firstNum = scala.io.StdIn.readInt()
   print("Enter number: ")
-  var secondNum = scala.io.StdIn.readInt()
+  val secondNum = scala.io.StdIn.readInt()
   print("Enter number: ")
-  var thirdNum = scala.io.StdIn.readInt()
+  val thirdNum = scala.io.StdIn.readInt()
 
-  print(add(firstNum, secondNum, thirdNum))
+  add(firstNum, secondNum, thirdNum)
 }

@@ -1,8 +1,8 @@
-object fizzbuzz extends App {
+object FizzBuzz extends App {
   println("Enter number: ")
-  var x = scala.io.StdIn.readInt()
+  val range = scala.io.StdIn.readInt()
 
-  for(i <- 1 to x){
+  for(i <- 1 to range){
     if(i%3 == 0 && i%5 != 0){
       println("fizz ")
     }

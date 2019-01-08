@@ -3,7 +3,7 @@ object PrimeNumberCount extends App {
   var noPrime = 0
 
   print("Enter a number: ")
-  var range = scala.io.StdIn.readInt()
+  val range = scala.io.StdIn.readInt()
 
   for(i <- 3 to range by 2){
     divisor = 2
