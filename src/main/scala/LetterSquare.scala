@@ -11,11 +11,11 @@ object LetterSquare extends App {
   println("Enter number: ")
   val number = scala.io.StdIn.readInt()
 
-  println("Enter letter sequence: ")
-  var letter = scala.io.StdIn.readLine()
-  letter = letter.toUpperCase
+  println("Enter letter: ")
+  val letter = scala.io.StdIn.readLine().toUpperCase
 
   for(i <- 1 to number){
     square(number, letter)
   }
 }
+
