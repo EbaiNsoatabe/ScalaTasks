@@ -18,4 +18,3 @@ object LetterSquare extends App {
     square(number, letter)
   }
 }
-
