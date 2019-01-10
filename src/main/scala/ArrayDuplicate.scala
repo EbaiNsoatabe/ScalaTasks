@@ -1,12 +1,12 @@
 object ArrayDuplicate extends App {
   val unique = Array.fill(10000000){scala.util.Random.nextInt(9999999)}
   val length = unique.length
-  def equal(a:Int, b:Int){
-    if(a == b) {
-      println(s"The duplicate integer is $a")
+  def equal(integerOne:Int, integerTwo:Int){
+    if(integerOne == integerTwo) {
+      println(s"The duplicate integer is $integerOne")
       sys.exit()
     }
-    else if(a == unique(length - 2) && b == unique(length - 1)){
+    else if(integerOne == unique(length - 2) && integerTwo == unique(length - 1)){
       println("There are no duplicates")
     }
   }
