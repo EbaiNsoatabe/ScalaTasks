@@ -28,16 +28,6 @@ object LumberJack extends App{
     }
   }
 
-  println()
-  println("This is the current storage configuration: ")
-  newGrid()
-
-  while(logs > 0) {
-    findSmall()
-    logPlacement(smallest)
-    logs -= 1
-  }
-
   def newGrid() {
     for (i <- 0 until 3) {
       print(storage(i) + " ")
@@ -52,6 +42,17 @@ object LumberJack extends App{
     }
     println()
   }
+
+  println()
+  println("This is the current storage configuration: ")
+  newGrid()
+
+  while(logs > 0) {
+    findSmall()
+    logPlacement(smallest)
+    logs -= 1
+  }
+
   println()
   println("This should become: ")
   newGrid()
