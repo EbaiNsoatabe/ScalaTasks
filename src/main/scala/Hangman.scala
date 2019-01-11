@@ -11,49 +11,22 @@ object Hangman extends App{
   var correctGuesses = 0
   var guessStorage = Array.fill(26){""}
   var noOfGuesses = 0
+  var incorrect = 0
 
   def underscores(word:String): Unit ={
     for(i <- 0 until word.length){
-     spaces(i) = "_ "
-     print(spaces(i))
+      spaces(i) = "_ "
+      print(spaces(i))
     }
     println()
   }
 
   def guess(choice:String): Unit ={
-    var incorrect = 0
+    incorrect = 0
     noOfGuesses += 1
-    for(i <- 0 until chosenWord.length){
-      if(choice == chosenWord.substring(i, i+1)){
-        spaces(i) = s"$choice "
-        correctGuesses += 1
-      }
-      else{
-        incorrect += 1
-      }
-      print(spaces(i))
-    }
-    if(correctGuesses == chosenWord.length){
-      println()
-      println()
-      println(s"Well done, you've guessed ${chosenWord.toUpperCase()} correctly!")
-      sys.exit()
-    }
-    if(incorrect == chosenWord.length){
-      println()
-      println("Incorrect guess, try again.")
-      wrongGuesses += 1
-      noose(wrongGuesses)
-    }
-    if(wrongGuesses < 6){
-      newGuess()
-    }
-    else{
-      println()
-      println()
-      println(s"You're out of guesses. The correct answer was ${chosenWord.toUpperCase()}." +
-        s" Goodbye.")
-    }
+    rightOrWrong(choice)
+    letterMatch()
+    endOfGame()
   }
 
   def newGuess(): Unit ={
@@ -74,6 +47,48 @@ object Hangman extends App{
     }
   }
 
+  def rightOrWrong(choice:String) {
+    for (i <- 0 until chosenWord.length) {
+      if (choice == chosenWord.substring(i, i + 1)) {
+        spaces(i) = s"$choice "
+        correctGuesses += 1
+      }
+      else {
+        incorrect += 1
+      }
+      print(spaces(i))
+    }
+  }
+
+  def letterMatch() {
+    if (correctGuesses == chosenWord.length) {
+      println()
+      println()
+      println(s"Well done, you've guessed ${chosenWord.toUpperCase()} correctly!")
+      sys.exit()
+    }
+    if (incorrect == chosenWord.length) {
+      println()
+      wrongGuesses += 1
+      if (wrongGuesses < 6) {
+        println("Incorrect guess, try again.")
+      }
+      noose(wrongGuesses)
+    }
+  }
+
+  def endOfGame() {
+    if (wrongGuesses < 6) {
+      newGuess()
+    }
+    else {
+      println()
+      println()
+      println(s"You've ran out of guesses. The correct answer was ${chosenWord.toUpperCase()}." +
+        s" Goodbye.")
+      sys.exit()
+    }
+  }
 
   def noose(incorrect:Int): Unit ={
     incorrect match{
