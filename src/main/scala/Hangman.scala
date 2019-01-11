@@ -9,6 +9,8 @@ object Hangman extends App{
   var letter = ""
   var wrongGuesses = 0
   var correctGuesses = 0
+  var guessStorage = Array.fill(26){""}
+  var noOfGuesses = 0
 
   def underscores(word:String): Unit ={
     for(i <- 0 until word.length){
@@ -20,6 +22,7 @@ object Hangman extends App{
 
   def guess(choice:String): Unit ={
     var incorrect = 0
+    noOfGuesses += 1
     for(i <- 0 until chosenWord.length){
       if(choice == chosenWord.substring(i, i+1)){
         spaces(i) = s"$choice "
@@ -56,11 +59,23 @@ object Hangman extends App{
     println()
     println("Enter your next guess: ")
     letter = scala.io.StdIn.readLine().toLowerCase()
+    repeatLetters(letter)
     guess(letter)
+  }
+
+  def repeatLetters(guess:String): Unit ={
+    guessStorage(noOfGuesses) = guess
+    for(i <- 0 until noOfGuesses){
+      if(guessStorage(i) == guess){
+        println("You have already guessed this letter, try again")
+        newGuess()
+      }
+    }
   }
 
   underscores(chosenWord)
   println("Enter your guess: ")
   letter = scala.io.StdIn.readLine().toLowerCase
+  repeatLetters(letter)
   guess(letter)
 }
