@@ -69,6 +69,10 @@ object CreditCard extends App {
         checkNum -= check
         println(s"You could try ${numString.substring(0, numString.length-1)}$checkNum?")
       }
+      else{
+        checkNum += (10 - check)
+        println(s"You could try ${numString.substring(0, numString.length-1)}$checkNum?")
+      }
     }
   }
   luhn(numString)
