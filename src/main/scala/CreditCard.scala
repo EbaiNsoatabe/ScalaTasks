@@ -1,4 +1,8 @@
 object CreditCard extends App {
+  println("Enter a number: ")
+  val numString = scala.io.StdIn.readLine()
+  var checkNum = numString.substring(numString.length-1, numString.length).toInt
+
   def doubles(numOne:Int):Int={
     var out = 0
     numOne match{
@@ -16,33 +20,60 @@ object CreditCard extends App {
     var output = 0
 
     for(i <- 1 to digits.length){
-      numbers(i) = (digits.substring(digits.length - i, digits.length - (i-1))).toInt
+      numbers(i) = digits.substring(digits.length - i, digits.length - (i-1)).toInt
     }
 
-    for(j <- numbers.length-1 to 1  by -2) {
-      if(numbers(j) < 5) {
-        numbers(j) = numbers(j) * 2
+    if(numbers.length % 2 != 0) {
+      for (j <- numbers.length - 1 to 1 by -2) {
+        if (numbers(j) < 5) {
+          numbers(j) = numbers(j) * 2
+        }
+        else {
+          numbers(j) = doubles(numbers(j))
+        }
       }
-      else{
-        numbers(j) = doubles(numbers(j))
+    }
+    else{
+      for(j <- numbers.length-2 to 1 by -2) {
+        if(numbers(j) < 5) {
+          numbers(j) = numbers(j) * 2
+        }
+        else{
+          numbers(j) = doubles(numbers(j))
+        }
       }
     }
 
     for(k <- 1 until numbers.length){
       output += numbers(k)
-      println(output + " ")
+      println(output)
     }
 
     println(s"This number adds up to $output")
 
     if(output % 10 == 0){
       println(s"$digits is therefore valid by the Luhn algorithm")
+      sys.exit()
     }
     else{
-      println(s"$digits is therefore not valid")
+      println("Invalid number.")
+      check(output)
     }
   }
-  println("Enter a number: ")
-  var numOne = scala.io.StdIn.readLine
-  luhn(numOne)
+
+  def check(invalid:Int): Unit ={
+    var check = 0
+    if(invalid > 9 && invalid < 100) {
+      check = invalid % 10
+      if(check <= checkNum){
+        checkNum -= check
+        println(s"You could try ${numString.substring(0, numString.length-1)}$checkNum?")
+      }
+      else{
+        checkNum += (10 - check)
+        println(s"You could try ${numString.substring(0, numString.length-1)}$checkNum?")
+      }
+    }
+  }
+  luhn(numString)
 }
