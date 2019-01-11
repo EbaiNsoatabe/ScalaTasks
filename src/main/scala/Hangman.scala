@@ -43,8 +43,9 @@ object Hangman extends App{
       println()
       println("Incorrect guess, try again.")
       wrongGuesses += 1
+      noose(wrongGuesses)
     }
-    if(wrongGuesses < 10){
+    if(wrongGuesses < 6){
       newGuess()
     }
     else{
@@ -70,6 +71,18 @@ object Hangman extends App{
         println("You have already guessed this letter, try again")
         newGuess()
       }
+    }
+  }
+
+
+  def noose(incorrect:Int): Unit ={
+    incorrect match{
+      case 1 => println("\n\n\n\n\n\n\n\n_______")
+      case 2 => println("\n|\n|\n|\n|\n|\n|\n|\n|_______")
+      case 3 => println(" _____\n|\n|\n|\n|\n|\n|\n|\n|_______")
+      case 4 => println(" _____\n|     |\n|     O\n|     \n|     \n|     \n|     \n|     \n|_______")
+      case 5 => println(" _____\n|     |\n|     O\n|     |\n|     \n|     \n|     \n|     \n|_______")
+      case 6 => println(" _____\n|     |\n|     O\n|     |\n|    /\\\n|     \n|     \n|     \n|_______")
     }
   }
 
