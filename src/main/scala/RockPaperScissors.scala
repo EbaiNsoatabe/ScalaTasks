@@ -2,7 +2,7 @@ object RockPaperScissors extends App{
   var memory = Array(0, 0, 0)
 
   def startMenu() {
-    println("Select 1 for Rock, 2 for Paper, 3 for Scissors, or 4 to exit the game.")
+    println("Select 1 for Rock, 2 for Paper, 3 for Scissors, or any other number key to exit the game.")
     var playChoice = scala.io.StdIn.readInt()
     var options = Array("Rock", "Paper", "Scissors")
     var aiSelect = scala.util.Random.nextInt(2)
@@ -34,32 +34,43 @@ object RockPaperScissors extends App{
       case 1 => memory(0) += 1
       case 2 => memory(1) += 1
       case 3 => memory(2) += 1
-      case 4 => sys.exit()
-      case _ => println("Invalid choice")
+      case _ => sys.exit()
     }
   }
 
   def winner(playChoice:Int, aiSelect:Int): Unit ={
     if(aiSelect == 0){
-      playChoice match{
-        case 1 => println("It is a draw")
-        case 2 => println("You have won. Congratulations.")
-        case 3 => println("You have lost. Commiserations.")
-      }
+     aiRock(playChoice)
     }
     else if(aiSelect == 1){
-      playChoice match{
-        case 1 => println("You have lost. Commiserations.")
-        case 2 => println("It is a draw")
-        case 3 => println("You have won. Congratulations.")
-      }
+     aiPaper(playChoice)
     }
     else{
-      playChoice match{
-        case 1 => println("You have won. Congratulations.")
-        case 2 => println("You have lost. Commiserations.")
-        case 3 => println("It is a draw")
-      }
+      aiScissors(playChoice)
+    }
+  }
+
+  def aiRock(choice:Int): Unit ={
+    choice match{
+      case 1 => println("It is a draw")
+      case 2 => println("You have won. Congratulations.")
+      case 3 => println("You have lost. Commiserations.")
+    }
+  }
+
+  def aiPaper(choice:Int): Unit ={
+    choice match{
+      case 1 => println("You have lost. Commiserations.")
+      case 2 => println("It is a draw")
+      case 3 => println("You have won. Congratulations.")
+    }
+  }
+
+  def aiScissors(choice:Int): Unit ={
+     choice match{
+      case 1 => println("You have won. Congratulations.")
+      case 2 => println("You have lost. Commiserations.")
+      case 3 => println("It is a draw")
     }
   }
   startMenu()
