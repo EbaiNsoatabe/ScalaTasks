@@ -23,7 +23,6 @@ object RockPaperScissors extends App{
       aiSelect = 0
     }
 
-
     playerSelect(playChoice, options)
     println(s"The AI has chosen ${options(aiSelect)}")
     winner(playChoice, aiSelect)
@@ -63,6 +62,5 @@ object RockPaperScissors extends App{
       }
     }
   }
-
   startMenu()
 }
