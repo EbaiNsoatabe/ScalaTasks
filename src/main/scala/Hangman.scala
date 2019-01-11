@@ -51,7 +51,7 @@ object Hangman extends App{
     else{
       println()
       println()
-      println(s"You've ran out of guesses. The correct answer was ${chosenWord.toUpperCase()}." +
+      println(s"You're out of guesses. The correct answer was ${chosenWord.toUpperCase()}." +
         s" Goodbye.")
     }
   }
