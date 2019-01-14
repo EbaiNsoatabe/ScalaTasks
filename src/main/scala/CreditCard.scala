@@ -74,6 +74,16 @@ object CreditCard extends App {
         checkNum += (10 - check)
         println(s"You could try ${numString.substring(0, numString.length-1)}$checkNum?")
       }
+      reSelect(s"${numString.substring(0, numString.length-1)}$checkNum")
+    }
+  }
+
+  def reSelect(newNum:String): Unit ={
+    println("Would you like to use this number? Enter 1 for yes or any other number for no.")
+    var choice = scala.io.StdIn.readInt()
+    choice match{
+      case 1 => luhn(newNum)
+      case _ => sys.exit()
     }
   }
   luhn(numString)
