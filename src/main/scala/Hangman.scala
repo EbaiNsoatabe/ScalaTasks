@@ -71,7 +71,7 @@ object Hangman extends App{
       println()
       wrongGuesses += 1
       if (wrongGuesses < 6) {
-        println("Incorrect guess, try again.")
+        println(s"Incorrect guess, try again. You have ${6 - wrongGuesses} incorrect guess(es) remaining.")
       }
       noose(wrongGuesses)
     }
@@ -96,8 +96,8 @@ object Hangman extends App{
       case 2 => println("\n|\n|\n|\n|\n|\n|\n|\n|_______")
       case 3 => println(" _____\n|\n|\n|\n|\n|\n|\n|\n|_______")
       case 4 => println(" _____\n|     |\n|     O\n|     \n|     \n|     \n|     \n|     \n|_______")
-      case 5 => println(" _____\n|     |\n|     O\n|     |\n|     \n|     \n|     \n|     \n|_______")
-      case 6 => println(" _____\n|     |\n|     O\n|     |\n|    /\\\n|     \n|     \n|     \n|_______")
+      case 5 => println(" _____\n|     |\n|     O\n|    /|\\\n|     \n|     \n|     \n|     \n|_______")
+      case 6 => println(" _____\n|     |\n|     O\n|    /|\\\n|    / \\\n|     \n|     \n|     \n|_______")
     }
   }
 

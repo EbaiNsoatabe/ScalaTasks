@@ -1,5 +1,5 @@
 object ZerosCount extends App{
-  val numGroup = Array(0, 6, 6, 7, 7, 8, 8, 8, 0, 0, 43)
+  val numGroup = Array(0, 6, 6, 7, 7, 8, 0, 8, 0, 0, 43)
   var count = 0
   var index = 0
 

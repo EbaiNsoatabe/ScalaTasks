@@ -12,7 +12,7 @@ object CreditCard extends App {
       case 8 => out=7
       case 9 => out=9
     }
-    return(out)
+    out
   }
 
   def luhn(digits:String): Unit ={
@@ -33,6 +33,7 @@ object CreditCard extends App {
         }
       }
     }
+
     else{
       for(j <- numbers.length-2 to 1 by -2) {
         if(numbers(j) < 5) {

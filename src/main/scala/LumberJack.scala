@@ -1,5 +1,8 @@
 object LumberJack extends App{
-  var storage = Array(7, 7, 2, 4, 5, 9, 3, 9, 12)
+  var storage = Array.fill(9){scala.util.Random.nextInt(9)}
+  println("This is the current storage configuration: ")
+  newGrid()
+  println()
   var smallest = storage(0)
   println("How many logs do you need to store? ")
   var logs = scala.io.StdIn.readInt()
@@ -42,10 +45,6 @@ object LumberJack extends App{
     }
     println()
   }
-
-  println()
-  println("This is the current storage configuration: ")
-  newGrid()
 
   while(logs > 0) {
     findSmall()
