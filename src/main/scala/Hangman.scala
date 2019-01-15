@@ -1,7 +1,7 @@
 object Hangman extends App{
   import scala.io.Source
 
-  val fileName = "C:\\Users\\Admin\\scala\\exercises\\words.txt"
+  val fileName = "C:\\Users\\Admin\\scala\\exercises\\hard.txt"
   val availableWords = Source.fromFile(fileName).getLines.toArray
   val wordPosition = scala.util.Random.nextInt(availableWords.length)
   val chosenWord = availableWords(wordPosition)
